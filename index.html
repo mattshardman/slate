@@ -226,6 +226,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#register-a-user" class="toc-h2 toc-link" data-title="Register a user">Register a user</a>
+                  </li>
+                  <li>
+                    <a href="#login-a-user" class="toc-h2 toc-link" data-title="Login a user">Login a user</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
@@ -262,44 +270,42 @@
 <p>And the api endpoints can be found here:
 <a href="https://lambda-gigapet.herokuapp.com">api</a></p>
 <h1 id='authentication'>Authentication</h1>
+<p>Gigapet uses Json Web Tokens (jwt) to authenticate users. To access endpoints send your jwt as the Authorization header.</p>
+<h2 id='register-a-user'>Register a user</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To register a user, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
+    <span class="na">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
+    <span class="na">password</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
+    <span class="na">img_url</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required </span>
+<span class="p">});</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>This will return the following JSON response:</p>
 </blockquote>
+<pre class="highlight javascript tab-javascript"><code>  <span class="c1">// response HTTP 200</span>
+  <span class="p">{</span>
+    <span class="nl">id</span><span class="p">:</span> <span class="nb">Number</span><span class="p">,</span>
+    <span class="nx">jwt</span><span class="p">:</span> <span class="nb">String</span>
+  <span class="p">}</span>
+</code></pre>
+<blockquote>
+<p>It&#39;s recommended to store the jwt in local storage</p>
+</blockquote>
+<h3 id='http-request'>HTTP Request</h3>
+<p>To register a new user send a request to:</p>
 
-<p>Gigapet uses Json Web Tokens (jwt) to authenticate users. To access endpoints send your jwt as the Authorization header.</p>
+<p><code>POST https://lambda-gigapet.herokuapp.com/api/auth/register</code></p>
 
-<p><code>Authorization: [your jwt here]</code></p>
+<!-- `Authorization: [your jwt here]`
 
 <aside class="notice">
 You must replace <code>[your jwt here]</code> with your personal jwt.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</aside> -->
+<h2 id='login-a-user'>Login a user</h2><h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
@@ -325,7 +331,7 @@ You must replace <code>[your jwt here]</code> with your personal jwt.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -379,7 +385,7 @@ Remember — a happy kitten is an authenticated kitten!
 <p>This endpoint retrieves a specific kitten.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -418,7 +424,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
