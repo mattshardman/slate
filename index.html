@@ -272,6 +272,9 @@
                     <a href="#get-food-entries" class="toc-h2 toc-link" data-title="Get food entries">Get food entries</a>
                   </li>
                   <li>
+                    <a href="#query-food-entry" class="toc-h2 toc-link" data-title="Query food entry">Query food entry</a>
+                  </li>
+                  <li>
                     <a href="#add-food-entry" class="toc-h2 toc-link" data-title="Add food entry">Add food entry</a>
                   </li>
                   <li>
@@ -320,6 +323,7 @@ You must replace <code>[your jwt here]</code> with your personal jwt.
     <span class="na">email</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
     <span class="na">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
     <span class="na">password</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// required</span>
+    <span class="na">pin</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required </span>
     <span class="na">img_url</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required </span>
 <span class="p">});</span>
 </code></pre>
@@ -379,20 +383,31 @@ You must replace <code>[your jwt here]</code> with your personal jwt.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Steve"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"childArray"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"child_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alfie"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pet_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alfatron"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pet_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="s2">"pet_experience"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"happy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sick"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"eating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"child_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pet_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snuffles"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pet_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="s2">"pet_experience"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"happy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sick"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"eating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -464,10 +479,18 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charlie"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pet_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acorn"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pet_experience"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"happy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sick"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>The id returned is of the new child</p>
+<p>Returns the newly created child object</p>
 </blockquote>
 
 <p>This endpoint creates a new child for a specific parent.</p>
@@ -514,7 +537,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">common</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"your jwt"</span><span class="p">;</span>
 
-<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+<span class="nx">axios</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span>
   <span class="s2">"https://lambda-gigapet.herokuapp.com/api/child/1"</span><span class="p">,</span>
   <span class="p">{</span>
     <span class="na">name</span><span class="p">:</span> <span class="s2">"Barlie"</span><span class="p">,</span>
@@ -543,7 +566,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span></code></pre>
 <p>This endpoint returns a the updated child and details about their pet.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>POST https://lambda-gigapet.herokuapp.com/api/child/:child_id</code></p>
+<p><code>PUT https://lambda-gigapet.herokuapp.com/api/child/:child_id</code></p>
 
 <aside class="success">
 Remember — a valid jwt must be sent as an Authorization header!
@@ -554,7 +577,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">common</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"your jwt"</span><span class="p">;</span>
 
-<span class="nx">axios</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">"http://localhost:8000//api/child/1"</span><span class="p">);</span>
+<span class="nx">axios</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">"https://lambda-gigapet.herokuapp.com/api/child/1"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -569,7 +592,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 
 <p>This endpoint deletes a specific child.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>DELETE http://localhost:8000//api/child/:child_id</code></p>
+<p><code>DELETE https://lambda-gigapet.herokuapp.com/api/child/:child_id</code></p>
 
 <aside class="success">
 Remember — a valid jwt must be sent as an Authorization header!
@@ -586,8 +609,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"carbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -596,13 +618,69 @@ Remember — a valid jwt must be sent as an Authorization header!
             </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+          </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"protein"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"vegetables"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"fruits"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"dairy"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns all food entries for a specific child.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/api/child/:child_id/entries</code></p>
+
+<aside class="success">
+Remember — a valid jwt must be sent as an Authorization header!
+</aside>
+<h2 id='query-food-entry'>Query food entry</h2>
+<blockquote>
+<p>To get all CARBS food entries for the WEEK for child with id 1, use this code:</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">common</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"your jwt"</span><span class="p">;</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"https://lambda-gigapet.herokuapp.com/api/child/1/entries?category=carbs&amp;time-span=week"</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"carbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">}],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns all food entries for a specific child, within given query parameters.</p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>null</td>
+<td>protein, carbs, diary, vegetables, fruit</td>
+<td>If not set, will return all categories</td>
+</tr>
+<tr>
+<td>time-span</td>
+<td>null</td>
+<td>day, week, month</td>
+<td>If not set, will return all entries</td>
+</tr>
+</tbody></table>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET &quot;https://lambda-gigapet.herokuapp.com/api/child/1/entries?category={choose a category}&amp;time-span={choose a time span}&quot;</code></p>
 
 <aside class="success">
 Remember — a valid jwt must be sent as an Authorization header!
@@ -628,22 +706,18 @@ Remember — a valid jwt must be sent as an Authorization header!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns all food entries for a specific child.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST http://localhost:8000/api/parent/:parent_id</code></p>
 
 <aside class="success">
@@ -671,21 +745,17 @@ Remember — a valid jwt must be sent as an Authorization header!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soup"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lunch"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-16"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soup"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lunch"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the updated food entry.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>PUT http://localhost:8000/api/entries/:entry_id</code></p>
 
 <aside class="success">
@@ -703,18 +773,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The food entry with ID 1 was successfully deleted"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -722,7 +781,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 
 <p>This endpoint deletes a specific food entry.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>DELETE http://localhost:8000/api/entries/:food_entry_id</code></p>
 
 <aside class="success">
