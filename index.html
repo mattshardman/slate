@@ -700,7 +700,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">common</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"your jwt"</span><span class="p">;</span>
 
-<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"https://lambda-gigapet.herokuapp.com/api/child/1/entries?category=carbs&amp;time-span=week"</span><span class="p">);</span>
+<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"https://lambda-gigapet.herokuapp.com/api/child/1/entries?category=carbs&amp;time_span=week"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -735,17 +735,27 @@ Remember — a valid jwt must be sent as an Authorization header!
 <td>If not set, will return all categories</td>
 </tr>
 <tr>
-<td>time-span</td>
+<td>time_span</td>
 <td>null</td>
 <td>day, week, month</td>
 <td>If not set, will return all entries</td>
 </tr>
+<tr>
+<td>specific_time_span</td>
+<td>null</td>
+<td>2019-04-09T11:45:12.000Zto2019-04-17T11:45:12.000Z</td>
+<td>date can be in ISO format or UNIX timestamp</td>
+</tr>
 </tbody></table>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET &quot;https://lambda-gigapet.herokuapp.com/api/child/1/entries?category={choose a category}&amp;time-span={choose a time span}&quot;</code></p>
+<p><code>GET &quot;https://lambda-gigapet.herokuapp.com/api/child/1/entries?category={choose a category}&amp;time-span={choose a time span}&amp;specific_time_span={(date)to(date)}&quot;</code></p>
 
 <aside class="success">
 Remember — a valid jwt must be sent as an Authorization header!
+</aside>
+
+<aside class="warning">
+Warning - time_span & specific_time_span should not be used together!
 </aside>
 <h2 id='add-food-entry'>Add food entry</h2>
 <blockquote>
