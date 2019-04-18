@@ -238,6 +238,9 @@
                   <li>
                     <a href="#get-specific-parent" class="toc-h2 toc-link" data-title="Get specific parent">Get specific parent</a>
                   </li>
+                  <li>
+                    <a href="#update-specific-parent" class="toc-h2 toc-link" data-title="Update specific parent">Update specific parent</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -419,6 +422,64 @@ You must replace <code>[your jwt here]</code> with your personal jwt.
 <aside class="success">
 Remember — a valid jwt must be sent as an Authorization header!
 </aside>
+<h2 id='update-specific-parent'>Update specific parent</h2>
+<blockquote>
+<p>To update parent with id 1, use this code:</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">common</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"your jwt"</span><span class="p">;</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s2">"https://lambda-gigapet.herokuapp.com/api/parent/1"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required</span>
+    <span class="na">email</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required</span>
+    <span class="na">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required</span>
+    <span class="na">password</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required</span>
+    <span class="na">pin</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required </span>
+    <span class="na">img_url</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// not required </span>
+<span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>any of the above fields can be edited
+The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Steve"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"childArray"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"child_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alfie"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alfatron"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_experience"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"happy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sick"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"eating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"child_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snuffles"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_experience"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"happy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sick"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"eating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_url"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a specific parent.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT http://localhost:8000/api/parent/:parent_id</code></p>
+
+<aside class="success">
+Remember — a valid jwt must be sent as an Authorization header!
+</aside>
 <h1 id='pets'>Pets</h1><h2 id='get-all-pets'>Get all pets</h2>
 <blockquote>
 <p>To get pets, use this code:</p>
@@ -454,7 +515,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns all pets.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://lambda-gigapet.herokuapp.com/api/pet</code></p>
 
 <aside class="success">
@@ -494,7 +555,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 
 <p>This endpoint creates a new child for a specific parent.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://lambda-gigapet.herokuapp.com/api/parent/:parent_id/child</code></p>
 
 <aside class="success">
@@ -525,7 +586,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns a specific child and details about their pet.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://lambda-gigapet.herokuapp.com/api/child/:child_id</code></p>
 
 <aside class="success">
@@ -565,7 +626,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns a the updated child and details about their pet.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>PUT https://lambda-gigapet.herokuapp.com/api/child/:child_id</code></p>
 
 <aside class="success">
@@ -591,7 +652,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 
 <p>This endpoint deletes a specific child.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>DELETE https://lambda-gigapet.herokuapp.com/api/child/:child_id</code></p>
 
 <aside class="success">
@@ -627,7 +688,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns all food entries for a specific child.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/api/child/:child_id/entries</code></p>
 
 <aside class="success">
@@ -680,7 +741,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 <td>If not set, will return all entries</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET &quot;https://lambda-gigapet.herokuapp.com/api/child/1/entries?category={choose a category}&amp;time-span={choose a time span}&quot;</code></p>
 
 <aside class="success">
@@ -718,7 +779,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns all food entries for a specific child.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST https://lambda-gigapet.herokuapp.com/api/child/:child_id/entries</code></p>
 
 <aside class="success">
@@ -756,7 +817,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the updated food entry.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>PUT http://localhost:8000/api/entries/:entry_id</code></p>
 
 <aside class="success">
@@ -782,7 +843,7 @@ Remember — a valid jwt must be sent as an Authorization header!
 </blockquote>
 
 <p>This endpoint deletes a specific food entry.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>DELETE http://localhost:8000/api/entries/:food_entry_id</code></p>
 
 <aside class="success">
