@@ -669,23 +669,28 @@ Remember — a valid jwt must be sent as an Authorization header!
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"carbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019--04-15"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-          </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"protein"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"vegetables"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"fruits"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"dairy"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"treats"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chicken"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dinner"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Protein"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-11T11:23:09.846Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-11T11:23:09.846Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porridge"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"meal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carbs"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_added"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-11T11:23:09.846Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-11T11:23:09.846Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns all food entries for a specific child.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
